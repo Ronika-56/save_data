@@ -1,0 +1,53 @@
+{% extends 'master.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-8">
+            {% if message %}
+            	<p class="text-danger">{{ message}}</p>
+            {% endif %} 
+            <table class="table" id="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAMES</th>
+                    <th>EMAIL</th>
+                    <th>PHONE</th>
+                    <th>DOB</th>
+                    <th>Details</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for person in data %}
+                    <tr>
+                        <td>{{ person.id }}</td>
+                        <td>{{ person.name | upper}}</td>
+                        <td>{{ person.email | lower}}</td>
+                        <td>{{ person.phone }}</td>
+                        <td>{{ person.dob | date:"d-m-y" }}</td>
+                        
+                    <td>
+                        <a href="details/{{ person.id }}" class="btn btn-sm btn-dark">details</a>
+                    </td>
+                    
+                    <td>
+                        <a href="delete/{{ person.id }}" class="btn btn-sm btn-danger">delete</a>
+                    </td>
+                    </tr>
+                {% endfor %}
+
+
+                </tbody>
+            </table>
+            <!-- /.table -->
+        </div>
+        <!-- /.col-sm-8 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+{% endblock %}

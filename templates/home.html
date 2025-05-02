@@ -1,0 +1,61 @@
+{% extends 'master.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-4">
+            <h2>Register here</h2>
+            <form action="/submit" method="post">
+
+                {% csrf_token %}
+
+                <div class="mb-3 mt-3">
+                    <label for="names" class="form-label">Names:</label>
+                    <input type="text" class="form-control" id="email" placeholder="Enter Names" name="names">
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="phone" class="form-label">Phone:</label>
+                    <input type="tel" class="form-control" id="email" placeholder="Enter phone" name="phone">
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="dob" class="form-label">Dob:</label>
+                    <input type="date" class="form-control" id="dob" placeholder="Enter dob" name="dob">
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <label for="weight" class="form-label">Weight:</label>
+                    <input type="number" class="form-control" id="weight" placeholder="Enter weight" name="weight">
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <label for="height" class="form-label">Height:</label>
+                    <input type="number" class="form-control" id="height" placeholder="Enter height" name="height">
+                </div>
+
+                <div class="mb-3 mt-3">
+                    <label for="gender" class="form-label">Gender:</label>
+                    <input type="text" class="form-control" id="gender" placeholder="Enter gender" name="gender">
+                </div>
+
+                <button class="btn btn-danger w-100"> Register</button>
+                <!-- /.button -->
+
+
+            </form>
+        </div>
+        <!-- /.col-sm-4 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+
+{% endblock %}
+
+

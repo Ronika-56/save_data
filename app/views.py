@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
 from app.models import Person
+from app.my_forms import PersonForm
 
 
 # Create your views here.
@@ -40,3 +41,13 @@ def delete(request,id):
     user.delete()
     message= f"User {user.name} deleted successfully"
     return redirect('people-page',{'message':message})
+
+
+def add_person(request):
+    if request.method == 'POST':
+        form = PersonForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = PersonForm(request.POST)
+    return render(request,'form.html',{'form':form})
